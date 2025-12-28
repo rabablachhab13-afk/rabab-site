@@ -1,0 +1,300 @@
+    
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Pijamas pour enfants</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- CSS Professionnel -->
+  <style>
+    /* === Reset de base === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background-color: #f9f9fb;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* === Header === */
+    header {
+      background: linear-gradient(135deg, #425bff, #7a95ff);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* === Navigation === */
+    nav {
+      background-color: #ffb703;
+      padding: 15px 0;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    .cart-btn {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #ff8c42;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .cart-btn:hover {
+      background-color: #ff7000;
+    }
+
+    /* === Container === */
+    .container {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      color: #425bff;
+    }
+
+    /* === Produits === */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    @media (max-width: 900px) {
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .products {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* === Card Produit === */
+    .card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: contain;
+      background-color: #f0f0f0;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin: 15px 0 10px 0;
+      color: #333;
+    }
+
+    .price {
+      color: #042c63;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .btn {
+      margin: 15px 0 20px 0;
+      padding: 12px 25px;
+      background-color: #ff8c42;
+      color: white;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #ff7000;
+      transform: scale(1.05);
+    }
+
+    /* === Panier === */
+    .cart {
+      position: fixed;
+      right: 20px;
+      top: 90px;
+      width: 320px;
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      display: none;
+      z-index: 1000;
+      transition: 0.3s;
+    }
+
+    .cart h3 {
+      margin-bottom: 15px;
+      color: #425bff;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 15px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #eee;
+    }
+
+    /* === Footer === */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+      margin-top: 40px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    footer p {
+      margin: 5px 0;
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Pijamas pour enfants 🧸</h1>
+  <p>Pyjamas pour enfants de haute qualité</p>
+</header>
+
+<nav>
+  <button class="cart-btn" onclick="toggleCart()">🛒 Panier</button>
+</nav>
+
+<div class="container">
+  <h2>Les produits</h2>
+  <div class="products">
+
+    <div class="card">
+      <img src="/maron.jpeg" alt="Pijama Marron">
+      <h3>Pijama Marron</h3>
+      <p class="price">120 DH</p>
+      <button class="btn" onclick="addToCart('Pijama Marron',120)">Ajouter au panier</button>
+    </div>
+
+    <div class="card">
+      <img src="/dino.jpeg" alt="Pijama Dino">
+      <h3>Pijama Dino</h3>
+      <p class="price">130 DH</p>
+      <button class="btn" onclick="addToCart('Pijama Dino',130)">Ajouter au panier</button>
+    </div>
+
+    <div class="card">
+      <img src="/hello kity.jpeg" alt="Hello Kitty">
+      <h3>Pijama Hello Kitty</h3>
+      <p class="price">115 DH</p>
+      <button class="btn" onclick="addToCart('Hello Kitty Rose',115)">Ajouter au panier</button>
+    </div>
+
+    <div class="card">
+      <img src="/stitch.jpeg" alt="Pijama Stitch">
+      <h3>Pijama Stitch</h3>
+      <p class="price">200 DH</p>
+      <button class="btn" onclick="addToCart('Pijama Stitch',200)">Ajouter au panier</button>
+    </div> 
+
+    <div class="card">
+      <img src="/tom and tjerry.jpeg" alt="Pijama Tom and Jerry">
+      <h3>Pijama Tom and Jerry</h3>
+      <p class="price">130 DH</p>
+      <button class="btn" onclick="addToCart('Pijama Tom and Jerry',130)">Ajouter au panier</button>
+    </div>
+
+    <div class="card">
+      <img src="/snopy.jpeg" alt="Pijama Snoopy">
+      <h3>Pijama Snoopy</h3>
+      <p class="price">115 DH</p>
+      <button class="btn" onclick="addToCart('Pijama Snoopy',115)">Ajouter au panier</button>
+    </div>
+
+  </div>
+</div>
+
+<div class="cart" id="cart">
+  <h3>🛒 Panier</h3>
+  <div id="cartItems"></div>
+  <hr>
+  <p><strong>Total: <span id="total">0</span> DH</strong></p>
+</div>
+
+<footer>
+  <p>Pour contacter nous:</p>
+  <p>Téléphone: 0717141679</p>
+  <p>Email: rabablachhab13@gmail.com</p>
+</footer>
+
+<script>
+  let total = 0;
+
+  function addToCart(name, price) {
+    const cartItems = document.getElementById("cartItems");
+    const item = document.createElement("div");
+    item.className = "cart-item";
+    item.innerHTML = `<span>${name}</span><span>${price} DH</span>`;
+    cartItems.appendChild(item);
+
+    total += price;
+    document.getElementById("total").innerText = total;
+  }
+
+  function toggleCart() {
+    const cart = document.getElementById("cart");
+    cart.style.display = cart.style.display === "block" ? "none" : "block";
+  }
+</script>
+
+</body>
+</html>
